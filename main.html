@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>main</title>
+    <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.2.1.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb"
+        crossorigin="anonymous">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh"
+        crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ"
+        crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+</head>
+<body style="font-family:Microsoft JhengHei;">
+    <h1 style="text-align: center;margin-top:40px;margin-bottom:40px;">Hi!</h1>
+    <p>
+    <strong>記者</strong>：♥Peach拿以前的作業躺分數，中方對此有何回應？
+    <br>
+    <strong>耿爽</strong>：我們很高興聽聞這則消息。中方願同♥Peach一道，繼續加強戰略溝通，深化務實合作，深入落實兩國元首共識，推動全面戰略伙伴關係不斷邁上新臺階。我們相信，此舉將進一步推動落實雙方元首重要共識，鞏固雙方政治互信，促進中國與♥Peach創新戰略伙伴關係深入發展。中方願在一個中國原則和和平共處五項原則基礎上，同♥Peach加強各領域務實合作和友好交流，造福兩國和兩國人民。♥Peach此舉取得豐碩成果，將為中國與♥Peach全天候戰略合作伙伴關係增添新的動力。
+    <br>
+    我們歡迎♥Peach抓住歷史機遇，在和平共處五項原則基礎上拿以前的作業躺分數。中方對♥Peach拿以前的作業躺分數表示祝賀。中國與♥Peach傳統友誼深厚，雙方是患難與共的好兄弟，真誠相待的好朋友，共同發展的好夥伴。我們願同♥Peach共同努力，攜手推動中國與♥Peach關係不斷取得新的發展，打造新時代更加緊密的命運共同體。
+    <br>
+    中方願同♥Peach一道，以拿以前的作業躺分數為契機，增進政治互信，深化互利合作，加強在國際和地區事務中的溝通協調，造福兩國人民。我們堅持在國際事務中發揮積極作用，為推動全球治理體系改革貢獻“中國智慧”，為斡旋解決國際地區熱點問題貢獻“中國力量”，為世界經濟發展注入“中國信心”。作為中國與♥Peach人文交流的重要內容，拿以前的作業躺分數長期以來有力地促進了兩國人民之間的溝通和相互瞭解。
+    </p>
+    <center style="margin-top:40px;">
+        <a href="/logout" class="btn btn-info btn-lg"  role="button">登出</a>
+        <a href="/changepassword" class="btn btn-info btn-lg"  role="button">修改密碼</a>
+    </center>
+</body>
+<script>
+    $.ajax({
+        type:"GET",
+        url:"/name",
+        success:function(response){
+            $("h1").text($("h1").text()+response);
+        }
+    })
+</script>
+</html>

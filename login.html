@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>login</title>
+    <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.2.1.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb"
+        crossorigin="anonymous">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh"
+        crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ"
+        crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+</head>
+<body style="font-family:Microsoft JhengHei;">
+    <h1 style="margin-top:40px;text-align:center;margin-bottom:20px;">登入</h1>
+    <div style="width:800px;margin:auto">
+        <div class="form-group">
+            <label for="name">帳號</label>
+            <input type="text" class="form-control" id="name" placeholder="帳號">
+        </div>
+        <div class="form-group">
+            <label for="password">密碼</label>
+            <input type="password" class="form-control" id="password" placeholder="密碼">
+        </div>
+        <center>
+            <button class="btn btn-info btn-lg" onclick="login();">登入</button>
+        </center>
+        <hr>
+        <center>
+            <p>尚未建立帳號?  </p>
+            <a href="/register" class="btn btn-info" role="button">註冊</a>
+        </center>
+    </div>
+    <script>
+        function login(){
+            $.ajax({
+                type:"POST",
+                url:"/check-data",
+                data:{"name":$("#name").val(),"password":$("#password").val()},
+                success: function (response) {
+                    $("input").val("");
+                    swal({
+                        text:"登入成功",
+                        icon:"success",
+                        buttons:"確定"
+                    });
+                    setTimeout(function(){location = "/"},2000);
+                },
+                error: function (jqxhr, status, exception){
+                    if(jqxhr.status == 404){
+                        $("input").val("");
+                        swal({
+                            text:"無此帳號",
+                            icon:"error",
+                            buttons:"確定"
+                        });
+                    }else if(jqxhr.status == 400){
+                        $("input").val("");
+                        swal({
+                            text:"密碼錯誤",
+                            icon:"error",
+                            buttons:"確定"
+                        });
+                    }
+                }
+            });
+        }
+    </script>
+</body>
+</html>
